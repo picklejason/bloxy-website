@@ -3,6 +3,14 @@
 import Script from "next/script";
 import { useEffect } from "react";
 
+declare global {
+  interface Window {
+    Tally?: {
+      loadEmbeds?: () => void;
+    };
+  }
+}
+
 type Props = {
   formUrl: string;
   title?: string;
@@ -32,7 +40,7 @@ export default function TallyEmbed({ formUrl, title = "Tally form", className }:
 function TallyLoader() {
   // Ensure embeds are initialized whether the script loads before or after mount
   useEffect(() => {
-    const tryLoad = () => (window as any).Tally?.loadEmbeds?.();
+    const tryLoad = () => window.Tally?.loadEmbeds?.();
     // Attempt immediately and after a short delay to catch late script load
     tryLoad();
     const t = setTimeout(tryLoad, 400);
@@ -42,7 +50,7 @@ function TallyLoader() {
     <Script
       src="https://tally.so/widgets/embed.js"
       strategy="lazyOnload"
-      onLoad={() => (window as any).Tally?.loadEmbeds?.()}
+      onLoad={() => window.Tally?.loadEmbeds?.()}
     />
   );
 }

@@ -11,7 +11,7 @@ export default function PrivacyPage() {
       <main className="flex-1 container py-12 max-w-3xl">
         <h1 className="text-4xl font-extrabold tracking-tight">Privacy Policy</h1>
         <p className="mt-4 text-[var(--color-muted)]">
-          This Privacy Policy explains how Bloxy ("we", "our", or "us") handles your information when you use the Bloxy
+          This Privacy Policy explains how Bloxy (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) handles your information when you use the Bloxy
           mobile app and this website. We designed Bloxy to be private by default and to minimize data collection.
         </p>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, type Transition } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 type RevealProps = {
@@ -18,7 +18,7 @@ export default function Reveal({
   direction = "up",
 }: RevealProps) {
   const prefersReduced = useReducedMotion();
-  const [ref, inView] = useInView({
+  const [observedRef, inView] = useInView({
     triggerOnce: true,
     rootMargin: "0px 0px -10% 0px",
     threshold: 0.15,
@@ -38,11 +38,19 @@ export default function Reveal({
     };
   }, [direction, prefersReduced]);
 
-  const transition = { duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: delayMs / 1000 };
+  const transition: Transition = {
+    duration: 0.85,
+    ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+    delay: delayMs / 1000,
+  };
+
+  const setRef: React.RefCallback<HTMLDivElement> = (node) => {
+    (observedRef as (node?: Element | null) => void)(node);
+  };
 
   return (
     <motion.div
-      ref={ref as any}
+      ref={setRef}
       className={className}
       variants={variants}
       initial="hidden"
