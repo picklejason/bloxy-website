@@ -1,6 +1,7 @@
 export const metadata = {
   title: "Terms of Service — Bloxy",
   description: "Terms governing your use of the Bloxy app and website.",
+  alternates: { canonical: "/terms" },
 };
 
 import Footer from "@/components/Footer";

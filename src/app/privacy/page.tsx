@@ -1,6 +1,8 @@
 export const metadata = {
   title: "Privacy Policy — Bloxy",
-  description: "How Bloxy handles your data: local-first storage, optional iCloud sync, no selling of personal data.",
+  description:
+    "How Bloxy handles your data: local-first storage, optional iCloud sync, no selling of personal data.",
+  alternates: { canonical: "/privacy" },
 };
 
 import Footer from "@/components/Footer";

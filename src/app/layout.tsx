@@ -17,7 +17,8 @@ export const metadata: Metadata = {
   title: "Bloxy — Build better habits, one block at a time",
   description:
     "Bloxy turns your daily tasks into a satisfying game. Complete tasks, drop blocks, clear lines, and unlock themes while staying consistent.",
-  metadataBase: new URL("https://bloxy.app"),
+  metadataBase: new URL("https://www.bloxyapp.com"),
+  applicationName: "Bloxy",
   icons: {
     icon: "/assets/images/icon.png",
     shortcut: "/assets/images/icon.png",
@@ -25,11 +26,18 @@ export const metadata: Metadata = {
   },
   keywords: [
     "habit tracker",
+    "habit tracker app",
+    "gamified habit tracker",
+    "gamified productivity app",
+    "to-do list game",
+    "task gamification",
+    "build habits",
+    "daily routine",
+    "streak tracker",
+    "iOS habit tracker",
+    "Android habit tracker",
     "productivity app",
     "task manager",
-    "gamified to-do",
-    "streaks",
-    "block game",
   ],
   alternates: { canonical: "/" },
   openGraph: {
@@ -38,12 +46,27 @@ export const metadata: Metadata = {
       "Complete tasks to place blocks, earn points, unlock themes, and keep your streak alive.",
     type: "website",
     url: "/",
+    siteName: "Bloxy",
+    images: [
+      {
+        url: "/assets/screens/today.png",
+        width: 1200,
+        height: 1800,
+        alt: "Bloxy Today screenshot",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Bloxy — Build better habits, one block at a time",
     description:
       "Turn tasks into blocks. Clear lines. Unlock rewards. Stay consistent.",
+    images: [
+      {
+        url: "/assets/screens/today.png",
+        alt: "Bloxy Today screenshot",
+      },
+    ],
   },
 };
 
@@ -57,7 +80,57 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://tally.so" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://tally.so" />
+        <link rel="manifest" href="/manifest.webmanifest" />
         <Script src="https://tally.so/widgets/embed.js" strategy="afterInteractive" />
+        <Script
+          id="ld-json-organization"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Bloxy",
+              url: "https://www.bloxyapp.com/",
+              logo: "https://www.bloxyapp.com/assets/images/icon.png",
+            }),
+          }}
+        />
+        <Script
+          id="ld-json-softwareapp"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              name: "Bloxy",
+              applicationCategory: "Productivity",
+              operatingSystem: "iOS, Android",
+              offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+              url: "https://www.bloxyapp.com/",
+            }),
+          }}
+        />
+        <Script
+          id="ld-json-website"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Bloxy",
+              url: "https://www.bloxyapp.com/",
+              inLanguage: "en",
+              potentialAction: {
+                "@type": "SearchAction",
+                target: "https://www.bloxyapp.com/?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            }),
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
