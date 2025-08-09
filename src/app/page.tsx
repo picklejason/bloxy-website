@@ -1,102 +1,212 @@
 import Image from "next/image";
+import Reveal from "@/components/Reveal";
+import StoreBadges from "@/components/StoreBadges";
+import ThemeShowcase from "@/components/ThemeShowcase";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="font-sans">
+      {/* Sticky Nav (global) */}
+      <div className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/5 bg-white/0 border-b border-[var(--color-border)]">
+        <div className="container">
+          <nav className="py-3 grid grid-cols-[auto_1fr_auto] items-center gap-3">
+            <div className="flex items-center gap-3">
+              <Image src="/assets/images/icon.png" alt="Bloxy logo" width={40} height={40} className="rounded-md shadow-sm" />
+              <span className="text-lg sm:text-xl font-semibold tracking-tight">Bloxy</span>
+            </div>
+            <div className="hidden sm:flex items-center justify-center gap-6 text-sm text-[var(--color-muted)]">
+              <a className="hover:text-white transition" href="#features">Features</a>
+              <a className="hover:text-white transition" href="#faqs">FAQs</a>
+              <a className="hover:text-white transition" href="#contact">Contact Us</a>
+            </div>
+            <div className="hidden sm:flex items-center gap-2 justify-end">
+              <a href="#download" className="btn-primary">Get the app</a>
+            </div>
+          </nav>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </div>
+      {/* Hero */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-24 left-1/2 size-[720px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent blur-2xl" />
+        </div>
+        <div className="container pt-10 pb-10 sm:pt-16 sm:pb-16">
+
+          <div className="mt-6 grid items-center gap-10 sm:grid-cols-2">
+            <Reveal>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
+                Build better habits, one block at a time.
+              </h1>
+              <p className="mt-4 text-base sm:text-lg text-[var(--color-muted)] max-w-xl">
+                Bloxy turns your day into a satisfying game. Finish tasks to drop blocks, clear lines to earn points, and unlock beautiful block themes.
+              </p>
+              <StoreBadges className="mt-8" />
+            </Reveal>
+            <Reveal className="relative" delayMs={100}>
+              <div className="card p-2 sm:p-3 max-w-[340px] sm:max-w-[400px] mx-auto">
+        <Image
+                  src="/assets/screens/today.png"
+                  alt="Bloxy Today screenshot"
+                  width={900}
+                  height={1800}
+                  className="w-full h-auto rounded-xl"
+                />
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust/Badges placeholder */}
+      {/* <section className="container py-10 sm:py-14">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 opacity-80">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <div key={i} className="card h-16 flex items-center justify-center text-sm text-[var(--color-muted)]">
+              Loved by productive people
+            </div>
+          ))}
+        </div>
+      </section> */}
+
+      {/* Feature tiles */}
+      <section id="features"className="container py-10 sm:py-20 ">
+        <div className="mb-10">
+        <h2 className="text-2xl sm:text-4xl font-bold">A smarter, playful approach</h2>
+        <p className="mt-2 text-[var(--color-muted)] max-w-2xl">
+          Complete tasks to place blocks and build momentum. Bloxy rewards consistency rather than perfection.
+        </p>
+        </div>
+        <div className="grid gap-6 sm:grid-cols-3">
+          <Reveal className="card p-5">
+            <h3 className="text-lg sm:text-xl font-bold">Turn your day into a game</h3>
+            <p className="mt-2 text-sm text-[var(--color-muted)]">Finish tasks, drop pieces, and clear lines to earn points.</p>
+            <div className="mt-4">
+              <ThemeShowcase baseSrc="/assets/screens/game.png" altSrc="/assets/screens/game-theme.png" alt="Game with different theme" />
+            </div>
+          </Reveal>
+          <Reveal className="card p-5" delayMs={80}>
+            <h3 className="text-lg sm:text-xl font-bold">Unlock beautiful block themes</h3>
+            <p className="mt-2 text-sm text-[var(--color-muted)]">Earn points to shop for unique styles in the collection.</p>
+            <div className="mt-4">
+              <Image src="/assets/screens/themes.png" alt="Themes" width={900} height={1800} className="w-full h-auto" />
+            </div>
+          </Reveal>
+          <Reveal className="card p-5" delayMs={300}>
+            <h3 className="text-lg sm:text-xl font-bold">Track your progress</h3>
+            <p className="mt-2 text-sm text-[var(--color-muted)]">See streaks, activity, and trends that help you stay consistent.</p>
+            <div className="mt-4 rounded-xl overflow-hidden">
+              <Image src="/assets/screens/stats.png" alt="Stats" width={900} height={1800} className="w-full h-auto" />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faqs" className="container py-10 sm:py-16">
+        <h3 className="text-2xl sm:text-3xl font-bold text-center">Frequently asked questions</h3>
+        <div className="mt-8 max-w-3xl mx-auto space-y-8">
+          {[
+            {
+              title: undefined,
+              items: [
+                {
+                  q: "How does Bloxy work?",
+                  a: "Bloxy combines task management with block-stacking gameplay. Complete your daily tasks and they become game pieces that you can drop and stack in an infinite block-stacking game. The more tasks you complete, the more pieces you have to play with!",
+                },
+                {
+                  q: "Can I play without completing tasks?",
+                  a: "No, you need completed tasks to generate game pieces. This is the core concept of Bloxy - turning your productivity into gameplay rewards.",
+                },
+                {
+                  q: "What happens to my game when I complete tasks?",
+                  a: "When you complete tasks, they automatically become available as game pieces in your block-stacking game. You can then drop and place these pieces on your game board.",
+                },
+              ],
+            },
+            {
+              title: "Tasks & Productivity",
+              items: [
+                { q: "How do I create and manage tasks?", a: "Tap the '+' button on the home screen to create new tasks. You can edit tasks by tapping on them, mark them complete by tapping the checkbox, and delete them by swiping or using the edit options." },
+                { q: "Can I edit tasks after creating them?", a: "Yes! Tap on any task to edit its title, description, or other details. Changes are saved automatically." },
+                { q: "What happens if I miss a day?", a: "Your streak counter will reset, but all your data, completed tasks, and game progress are preserved. You can continue building your productivity habits from where you left off." },
+              ],
+            },
+            {
+              title: "Game & Progress",
+              items: [
+                { q: "Is the block-stacking game infinite?", a: "Yes! The game continues indefinitely. Your game state is saved between sessions, so you can always come back and continue playing with new pieces from completed tasks." },
+                { q: "How is my score calculated?", a: "Your score increases when you clear lines in the block-stacking game. The more lines you clear at once, the higher your score multiplier. Completed tasks also contribute to your overall productivity score." },
+                { q: "Can I see my productivity statistics?", a: "Yes! Check the Stats tab to see your daily task completion rates, game scores, streaks, and other productivity metrics over time." },
+              ],
+            },
+            {
+              title: "Data & Privacy",
+              items: [
+                { q: "Is my data backed up?", a: "Yes. Bloxy supports iCloud backup and sync on iOS, so your data stays safe across devices. No manual export is required." },
+                { q: "Is my data private?", a: "Absolutely! All your data is stored locally on your device. We don't collect personal information or share any data with third parties. Your tasks and game progress stay completely private." },
+                { q: "What happens if I delete the app?", a: "If you delete the app, all your local data (tasks, game progress, stats) will be lost unless you've exported it first. Make sure to back up your data from the settings if you want to keep it." },
+              ],
+            },
+            {
+              title: "Customization",
+              items: [
+                { q: "Can I customize the game blocks?", a: "Yes! Go to Settings > Block Themes to customize the colors and appearance of your game pieces. Choose from different color schemes or create your own." },
+                { q: "Can I change notification settings?", a: "Yes! Visit Settings > Notifications to customize when and how you receive reminders about tasks, streaks, and other app notifications." },
+                { q: "Is there a dark mode?", a: "Yes! The app automatically adapts to your device's system theme (light/dark mode). You can also manually control this in your device settings." },
+              ],
+            },
+            {
+              title: "Troubleshooting",
+              items: [
+                { q: "The app is running slowly or crashing", a: "Try closing and reopening the app. If problems persist, you can export your data for backup, then try restarting your device. Contact us if issues continue." },
+                { q: "My tasks or game progress disappeared", a: "This is unusual as data is stored locally. Check if you might be using a different device or if the app was recently updated. If data loss persists, please contact our support team." },
+                { q: "How do I report bugs or request features?", a: "Use the 'Contact Us' option in Settings to report bugs, suggest features, or send general feedback. We read all submissions and use them to improve Bloxy." },
+              ],
+            },
+          ].map((section, idx) => (
+            <div key={idx}>
+              {section.title && (
+                <h4 className="text-lg font-semibold mb-2">{section.title}</h4>
+              )}
+              <div className="divide-y divide-[var(--color-border)]">
+                {section.items.map((item) => (
+                  <details key={item.q} className="group open:pb-4">
+                    <summary className="cursor-pointer py-4 text-left list-none font-medium flex items-center justify-between">
+                      {item.q}
+                      <span className="text-[var(--color-muted)]">+</span>
+                    </summary>
+                    <p className="text-[var(--color-muted)]">{item.a}</p>
+                  </details>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section id="download" className="container py-14 sm:py-20">
+        <div className="card p-8 sm:p-10 text-center">
+          <h4 className="text-2xl sm:text-4xl font-extrabold">Your Health. Your Journey.</h4>
+          <p className="mt-2 text-[var(--color-muted)]">Track progress, celebrate wins, and build lasting habits.</p>
+          <StoreBadges className="mt-6 flex justify-center" />
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer id="contact" className="container py-10 text-sm text-[var(--color-muted)]">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2">
+            <Image src="/assets/images/icon.png" alt="Bloxy" width={20} height={20} className="rounded" />
+            <span>Bloxy</span>
+          </div>
+          <div className="flex gap-4">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Contact Us</a>
+          </div>
+        </div>
+        <p className="mt-4">© {new Date().getFullYear()} Bloxy</p>
       </footer>
     </div>
   );
