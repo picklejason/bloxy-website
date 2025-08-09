@@ -1,50 +1,56 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useMemo } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 type RevealProps = {
   children: React.ReactNode;
   className?: string;
-  as?: keyof JSX.IntrinsicElements;
   delayMs?: number;
+  direction?: "up" | "left" | "right" | "down";
 };
 
 export default function Reveal({
   children,
   className,
-  as: Component = "div",
   delayMs = 0,
+  direction = "up",
 }: RevealProps) {
-  const ref = useRef<HTMLElement | null>(null);
-  const [shown, setShown] = useState(false);
+  const prefersReduced = useReducedMotion();
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    rootMargin: "0px 0px -10% 0px",
+    threshold: 0.15,
+  });
 
-  useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        if (entry.isIntersecting) {
-          setTimeout(() => setShown(true), delayMs);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "0px 0px -10% 0px", threshold: 0.15 }
-    );
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, [delayMs]);
+  const variants = useMemo(() => {
+    const distance = 24; // px offset
+    const offset = {
+      up: { x: 0, y: distance },
+      down: { x: 0, y: -distance },
+      left: { x: -distance, y: 0 },
+      right: { x: distance, y: 0 },
+    }[direction];
+    return {
+      hidden: prefersReduced ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, ...offset },
+      show: { opacity: 1, x: 0, y: 0 },
+    };
+  }, [direction, prefersReduced]);
+
+  const transition = { duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: delayMs / 1000 };
 
   return (
-    // @ts-expect-error: dynamic component tag
-    <Component
+    <motion.div
       ref={ref as any}
-      className={`reveal will-change-transform ${
-        shown ? "reveal-in" : "reveal-init"
-      } ${className ?? ""}`}
+      className={className}
+      variants={variants}
+      initial="hidden"
+      animate={inView ? "show" : "hidden"}
+      transition={transition}
     >
       {children}
-    </Component>
+    </motion.div>
   );
 }
 

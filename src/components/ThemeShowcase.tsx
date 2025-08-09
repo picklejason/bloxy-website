@@ -8,10 +8,11 @@ type Props = {
   altSrc?: string; // alternate game screenshot (e.g., different theme)
   themedSrc?: string; // backward compatibility
   alt?: string;
+  sizes?: string;
 };
 
 // Crossfade between base and themed screenshot to demonstrate themes.
-export default function ThemeShowcase({ baseSrc, altSrc, themedSrc, alt = "Bloxy theme" }: Props) {
+export default function ThemeShowcase({ baseSrc, altSrc, themedSrc, alt = "Bloxy theme", sizes = "(min-width: 640px) 33vw, 100vw" }: Props) {
   const secondary = altSrc ?? themedSrc;
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [active, setActive] = useState(false);
@@ -36,6 +37,7 @@ export default function ThemeShowcase({ baseSrc, altSrc, themedSrc, alt = "Bloxy
         alt={alt}
         width={900}
         height={1800}
+        sizes={sizes}
         className={`w-full h-auto will-change-opacity ${secondary ? "animate-xfade-a" : ""}`}
         style={{
           animationPlayState: active ? ("running" as const) : ("paused" as const),
@@ -47,6 +49,7 @@ export default function ThemeShowcase({ baseSrc, altSrc, themedSrc, alt = "Bloxy
           alt={alt}
           width={900}
           height={1800}
+          sizes={sizes}
           className="absolute inset-0 w-full h-auto will-change-opacity animate-xfade-b"
           style={{
             animationPlayState: active ? ("running" as const) : ("paused" as const),
