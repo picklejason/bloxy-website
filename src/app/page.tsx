@@ -4,10 +4,51 @@ import StoreBadges from "@/components/StoreBadges";
 import ThemeShowcase from "@/components/ThemeShowcase";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import Script from "next/script";
 
 export default function Home() {
   return (
     <div className="font-sans">
+      <Script
+        id="ld-json-faq"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "How does Bloxy work?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text:
+                    "Bloxy combines task management with block-stacking gameplay. Complete your daily tasks and they become game pieces that you can drop and stack in an infinite block-stacking game.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Can I play without completing tasks?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text:
+                    "No, you need completed tasks to generate game pieces. This is the core concept of Bloxy - turning your productivity into gameplay rewards.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Is the block-stacking game infinite?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text:
+                    "Yes. The game continues indefinitely and your state is saved between sessions.",
+                },
+              },
+            ],
+          }),
+        }}
+      />
       {/* Sticky Nav (global) */}
       <div className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/5 bg-white/0 border-b border-[var(--color-border)]">
         <div className="container">

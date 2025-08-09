@@ -4,6 +4,7 @@ import TallyEmbed from "@/components/TallyEmbed";
 export const metadata = {
   title: "Contact — Bloxy",
   description: "Get in touch with the Bloxy team. Send a message via the form or email bloxyapp@gmail.com.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {
