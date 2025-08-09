@@ -56,11 +56,11 @@ export default function StoreBadges({ className }: Props) {
           onClick={() => setOpen(false)}
         >
           <div
-            className="card w-full max-w-xl p-4 bg-[var(--background)]"
+            className="card w-full max-w-2xl p-6 bg-[var(--background)] shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-3">
-              <h5 className="text-lg font-semibold">Join the Android Waitlist</h5>
+              <h5 className="text-xl font-semibold">Join the Android Waitlist</h5>
               <button
                 type="button"
                 onClick={() => setOpen(false)}
@@ -71,6 +71,11 @@ export default function StoreBadges({ className }: Props) {
               </button>
             </div>
             <TallyEmbed formUrl="https://tally.so/embed/mRoDv3" title="Android Waitlist" />
+            <p className="mt-3 text-xs text-[var(--color-muted)]">
+              Having trouble with the embedded form? Open it directly
+              {" "}
+              <a className="underline" href="https://tally.so/r/mRoDv3" target="_blank" rel="noreferrer">here</a>.
+            </p>
           </div>
         </div>
       )}

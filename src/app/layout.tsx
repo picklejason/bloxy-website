@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,6 +18,11 @@ export const metadata: Metadata = {
   description:
     "Bloxy turns your daily tasks into a satisfying game. Complete tasks, drop blocks, clear lines, and unlock themes while staying consistent.",
   metadataBase: new URL("https://bloxy.app"),
+  icons: {
+    icon: "/assets/images/icon.png",
+    shortcut: "/assets/images/icon.png",
+    apple: "/assets/images/icon.png",
+  },
   keywords: [
     "habit tracker",
     "productivity app",
@@ -48,6 +54,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="smooth-scroll">
+      <head>
+        <link rel="preconnect" href="https://tally.so" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://tally.so" />
+        <Script src="https://tally.so/widgets/embed.js" strategy="afterInteractive" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

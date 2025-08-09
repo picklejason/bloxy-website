@@ -2,6 +2,8 @@ import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import StoreBadges from "@/components/StoreBadges";
 import ThemeShowcase from "@/components/ThemeShowcase";
+import Footer from "@/components/Footer";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -10,14 +12,14 @@ export default function Home() {
       <div className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/5 bg-white/0 border-b border-[var(--color-border)]">
         <div className="container">
           <nav className="py-3 grid grid-cols-[auto_1fr_auto] items-center gap-3">
-            <div className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition">
               <Image src="/assets/images/icon.png" alt="Bloxy logo" width={40} height={40} className="rounded-md shadow-sm" />
               <span className="text-lg sm:text-xl font-semibold tracking-tight">Bloxy</span>
-            </div>
+            </Link>
             <div className="hidden sm:flex items-center justify-center gap-6 text-sm text-[var(--color-muted)]">
               <a className="hover:text-white transition" href="#features">Features</a>
               <a className="hover:text-white transition" href="#faqs">FAQs</a>
-              <a className="hover:text-white transition" href="#contact">Contact Us</a>
+              <Link className="hover:text-white transition" href="/contact">Contact</Link>
             </div>
             <div className="hidden sm:flex items-center gap-2 justify-end">
               <a href="#download" className="btn-primary">Get the app</a>
@@ -43,12 +45,13 @@ export default function Home() {
               <StoreBadges className="mt-8" />
             </Reveal>
             <Reveal className="relative" delayMs={100}>
-              <div className="card p-2 sm:p-3 max-w-[340px] sm:max-w-[400px] mx-auto">
-        <Image
+              <div className="card p-2 sm:p-3 max-w-[360px] sm:max-w-[420px] md:max-w-[480px] mx-auto">
+                <Image
                   src="/assets/screens/today.png"
                   alt="Bloxy Today screenshot"
                   width={900}
                   height={1800}
+                  sizes="(min-width: 1024px) 40vw, (min-width: 640px) 50vw, 95vw"
                   className="w-full h-auto rounded-xl"
                 />
               </div>
@@ -77,21 +80,21 @@ export default function Home() {
         </p>
         </div>
         <div className="grid gap-6 sm:grid-cols-3">
-          <Reveal className="card p-5">
+          <Reveal className="card p-5" delayMs={60} direction="left">
             <h3 className="text-lg sm:text-xl font-bold">Turn your day into a game</h3>
             <p className="mt-2 text-sm text-[var(--color-muted)]">Finish tasks, drop pieces, and clear lines to earn points.</p>
             <div className="mt-4">
-              <ThemeShowcase baseSrc="/assets/screens/game.png" altSrc="/assets/screens/game-theme.png" alt="Game with different theme" />
+              <ThemeShowcase baseSrc="/assets/screens/game.png" altSrc="/assets/screens/game-theme.png" alt="Game with different theme" sizes="(min-width: 1024px) 33vw, 100vw" />
             </div>
           </Reveal>
-          <Reveal className="card p-5" delayMs={80}>
+          <Reveal className="card p-5" delayMs={120} direction="up">
             <h3 className="text-lg sm:text-xl font-bold">Unlock beautiful block themes</h3>
             <p className="mt-2 text-sm text-[var(--color-muted)]">Earn points to shop for unique styles in the collection.</p>
             <div className="mt-4">
               <Image src="/assets/screens/themes.png" alt="Themes" width={900} height={1800} className="w-full h-auto" />
             </div>
           </Reveal>
-          <Reveal className="card p-5" delayMs={300}>
+          <Reveal className="card p-5" delayMs={180} direction="right">
             <h3 className="text-lg sm:text-xl font-bold">Track your progress</h3>
             <p className="mt-2 text-sm text-[var(--color-muted)]">See streaks, activity, and trends that help you stay consistent.</p>
             <div className="mt-4 rounded-xl overflow-hidden">
@@ -128,7 +131,7 @@ export default function Home() {
               items: [
                 { q: "How do I create and manage tasks?", a: "Tap the '+' button on the home screen to create new tasks. You can edit tasks by tapping on them, mark them complete by tapping the checkbox, and delete them by swiping or using the edit options." },
                 { q: "Can I edit tasks after creating them?", a: "Yes! Tap on any task to edit its title, description, or other details. Changes are saved automatically." },
-                { q: "What happens if I miss a day?", a: "Your streak counter will reset, but all your data, completed tasks, and game progress are preserved. You can continue building your productivity habits from where you left off." },
+                { q: "What happens if I miss a day?", a: "If you don’t complete all your tasks for the day, a ‘garbage line’ is added to your game board to keep things challenging. Your streak resets, but your data and progress are preserved so you can bounce back the next day." },
               ],
             },
             {
@@ -142,7 +145,7 @@ export default function Home() {
             {
               title: "Data & Privacy",
               items: [
-                { q: "Is my data backed up?", a: "Yes. Bloxy supports iCloud backup and sync on iOS, so your data stays safe across devices. No manual export is required." },
+                { q: "Is my data backed up?", a: "Bloxy supports iCloud backup and sync on iOS. Make sure iCloud for Bloxy is enabled in your device settings to keep your data synced and safe across devices." },
                 { q: "Is my data private?", a: "Absolutely! All your data is stored locally on your device. We don't collect personal information or share any data with third parties. Your tasks and game progress stay completely private." },
                 { q: "What happens if I delete the app?", a: "If you delete the app, all your local data (tasks, game progress, stats) will be lost unless you've exported it first. Make sure to back up your data from the settings if you want to keep it." },
               ],
@@ -150,9 +153,9 @@ export default function Home() {
             {
               title: "Customization",
               items: [
-                { q: "Can I customize the game blocks?", a: "Yes! Go to Settings > Block Themes to customize the colors and appearance of your game pieces. Choose from different color schemes or create your own." },
+                { q: "Can I customize the game blocks?", a: "Yes! Go to Settings > Block Themes to customize the colors and appearance of your game pieces. Earn points from completings tasks and playing the game to unlock new themes." },
                 { q: "Can I change notification settings?", a: "Yes! Visit Settings > Notifications to customize when and how you receive reminders about tasks, streaks, and other app notifications." },
-                { q: "Is there a dark mode?", a: "Yes! The app automatically adapts to your device's system theme (light/dark mode). You can also manually control this in your device settings." },
+                { q: "Is there a dark mode?", a: "Yes! It is recommended to use dark mode for the best experience but you can also choose between light, dark, and system default." },
               ],
             },
             {
@@ -194,20 +197,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer id="contact" className="container py-10 text-sm text-[var(--color-muted)]">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <Image src="/assets/images/icon.png" alt="Bloxy" width={20} height={20} className="rounded" />
-            <span>Bloxy</span>
-          </div>
-          <div className="flex gap-4">
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
-            <a href="#">Contact Us</a>
-          </div>
-        </div>
-        <p className="mt-4">© {new Date().getFullYear()} Bloxy</p>
-      </footer>
+      <Footer />
     </div>
   );
 }
