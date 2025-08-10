@@ -132,7 +132,7 @@ export default function Home() {
             <h3 className="text-lg sm:text-xl font-bold">Unlock beautiful block themes</h3>
             <p className="mt-2 text-sm text-[var(--color-muted)]">Earn points to shop for unique styles in the collection.</p>
             <div className="mt-4">
-              <Image src="/assets/screens/themes.png" alt="Themes" width={900} height={1800} className="w-full h-auto" />
+              <ThemeShowcase baseSrc="/assets/screens/themes.png" altSrc="/assets/screens/themes-other.png" alt="Themes switching" sizes="(min-width: 1024px) 33vw, 100vw" />
             </div>
           </Reveal>
           <Reveal className="card p-5" delayMs={180} direction="right">

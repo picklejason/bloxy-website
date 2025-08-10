@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 type Props = {
   baseSrc: string;
@@ -16,6 +16,11 @@ export default function ThemeShowcase({ baseSrc, altSrc, themedSrc, alt = "Bloxy
   const secondary = altSrc ?? themedSrc;
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [active, setActive] = useState(false);
+  // Use a shared anchor so all instances stay in the same phase of the animation cycle.
+  // Compute delay only on the client to avoid SSR hydration mismatches.
+  const XFADER_DURATION_MS = 6000;
+  const [animationDelayMs, setAnimationDelayMs] = useState(0);
+  const [delayComputed, setDelayComputed] = useState(false);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -30,6 +35,24 @@ export default function ThemeShowcase({ baseSrc, altSrc, themedSrc, alt = "Bloxy
     return () => io.disconnect();
   }, []);
 
+  useLayoutEffect(() => {
+    // Compute once on mount so the delay is ready before animation starts
+    const win = window as unknown as { [key: string]: unknown } & Window & { __themeShowcaseAnchor?: number };
+    const anchor = win.__themeShowcaseAnchor ?? (win.__themeShowcaseAnchor = Date.now());
+    const computed = -(((Date.now() - anchor) % XFADER_DURATION_MS));
+    setAnimationDelayMs(computed);
+    setDelayComputed(true);
+  }, []);
+
+  useEffect(() => {
+    // Recompute when becoming active to ensure perfect phase alignment even if this instance enters view later
+    if (!active) return;
+    const win = window as unknown as { [key: string]: unknown } & Window & { __themeShowcaseAnchor?: number };
+    const anchor = win.__themeShowcaseAnchor ?? (win.__themeShowcaseAnchor = Date.now());
+    const computed = -(((Date.now() - anchor) % XFADER_DURATION_MS));
+    setAnimationDelayMs(computed);
+  }, [active]);
+
   return (
     <div ref={containerRef} className="relative overflow-hidden rounded-xl border border-[var(--color-border)]">
       <Image
@@ -40,7 +63,8 @@ export default function ThemeShowcase({ baseSrc, altSrc, themedSrc, alt = "Bloxy
         sizes={sizes}
         className={`w-full h-auto will-change-opacity ${secondary ? "animate-xfade-a" : ""}`}
         style={{
-          animationPlayState: active ? ("running" as const) : ("paused" as const),
+          animationPlayState: active && delayComputed ? ("running" as const) : ("paused" as const),
+          animationDelay: `${animationDelayMs}ms`,
         }}
       />
       {secondary && (
@@ -52,7 +76,8 @@ export default function ThemeShowcase({ baseSrc, altSrc, themedSrc, alt = "Bloxy
           sizes={sizes}
           className="absolute inset-0 w-full h-auto will-change-opacity animate-xfade-b"
           style={{
-            animationPlayState: active ? ("running" as const) : ("paused" as const),
+            animationPlayState: active && delayComputed ? ("running" as const) : ("paused" as const),
+            animationDelay: `${animationDelayMs}ms`,
           }}
         />
       )}
