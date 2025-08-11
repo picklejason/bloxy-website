@@ -53,8 +53,8 @@ export default function Home() {
       <div className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/5 bg-white/0 border-b border-[var(--color-border)]">
         <div className="container">
           <nav className="py-3 grid grid-cols-[auto_1fr_auto] items-center gap-3">
-            <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition">
-              <Image src="/assets/images/icon.png" alt="Bloxy logo" width={40} height={40} className="rounded-md shadow-sm" priority />
+            <Link href="/" className="flex items-center hover:opacity-90 transition gap-2">
+              <Image src="/assets/images/logo.png" alt="Bloxy logo" width={40} height={40} className="rounded-md shadow-sm" priority/>
               <span className="text-lg sm:text-xl font-semibold tracking-tight">Bloxy</span>
             </Link>
             <nav className="hidden sm:flex items-center justify-center gap-6 text-sm text-[var(--color-muted)]" aria-label="Main navigation">
