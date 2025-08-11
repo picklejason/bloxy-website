@@ -49,10 +49,10 @@ export const metadata: Metadata = {
     siteName: "Bloxy",
     images: [
       {
-        url: "/assets/screens/today.png",
+        url: "/assets/images/home.png",
         width: 1200,
         height: 1800,
-        alt: "Bloxy Today screenshot",
+        alt: "Bloxy Home screenshot",
       },
     ],
   },
@@ -63,8 +63,8 @@ export const metadata: Metadata = {
       "Turn tasks into blocks. Clear lines. Unlock rewards. Stay consistent.",
     images: [
       {
-        url: "/assets/screens/today.png",
-        alt: "Bloxy Today screenshot",
+        url: "/assets/images/home.png",
+        alt: "Bloxy Home screenshot",
       },
     ],
   },
