@@ -2,7 +2,7 @@ import Footer from "@/components/Footer";
 import TallyEmbed from "@/components/TallyEmbed";
 
 export const metadata = {
-  title: "Contact — Bloxy",
+  title: "Contact",
   description: "Get in touch with the Bloxy team. Send a message via the form or email bloxyapp@gmail.com.",
   alternates: { canonical: "/contact" },
 };

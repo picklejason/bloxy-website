@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Privacy Policy — Bloxy",
+  title: "Privacy Policy",
   description:
     "How Bloxy handles your data: local-first storage, optional iCloud sync, no selling of personal data.",
   alternates: { canonical: "/privacy" },

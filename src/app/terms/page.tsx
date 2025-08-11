@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Terms of Service — Bloxy",
+  title: "Terms of Service",
   description: "Terms governing your use of the Bloxy app and website.",
   alternates: { canonical: "/terms" },
 };
