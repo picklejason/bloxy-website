@@ -2,41 +2,30 @@
 
 import { useMemo } from "react";
 import { motion, useReducedMotion, type Transition } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 
 type RevealProps = {
   children: React.ReactNode;
   className?: string;
   delayMs?: number;
-  direction?: "up" | "left" | "right" | "down";
 };
 
 export default function Reveal({
   children,
   className,
   delayMs = 0,
-  direction = "up",
 }: RevealProps) {
   const prefersReduced = useReducedMotion();
-  const [observedRef, inView] = useInView({
-    triggerOnce: true,
-    rootMargin: "0px 0px -10% 0px",
-    threshold: 0.15,
-  });
 
   const variants = useMemo(() => {
-    const distance = 24; // px offset
-    const offset = {
-      up: { x: 0, y: distance },
-      down: { x: 0, y: -distance },
-      left: { x: -distance, y: 0 },
-      right: { x: distance, y: 0 },
-    }[direction];
+    const distance = 20;
+    
     return {
-      hidden: prefersReduced ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, ...offset },
-      show: { opacity: 1, x: 0, y: 0 },
+      hidden: prefersReduced 
+        ? { opacity: 1, y: 0 } 
+        : { opacity: 0, y: distance },
+      show: { opacity: 1, y: 0 },
     };
-  }, [direction, prefersReduced]);
+  }, [prefersReduced]);
 
   const transition: Transition = {
     duration: 0.85,
@@ -44,22 +33,20 @@ export default function Reveal({
     delay: delayMs / 1000,
   };
 
-  const setRef: React.RefCallback<HTMLDivElement> = (node) => {
-    (observedRef as (node?: Element | null) => void)(node);
-  };
-
   return (
     <motion.div
-      ref={setRef}
       className={className}
       variants={variants}
       initial="hidden"
-      animate={inView ? "show" : "hidden"}
+      whileInView="show"
+      viewport={{ once: true, amount: 0.15, margin: "0px 0px -10% 0px" }}
       transition={transition}
+      style={{ willChange: prefersReduced ? undefined : "transform, opacity" }}
     >
       {children}
     </motion.div>
   );
 }
+
 
 

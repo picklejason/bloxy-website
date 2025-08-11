@@ -6,15 +6,14 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 type Props = {
   baseSrc: string;
   altSrc?: string; // alternate game screenshot (e.g., different theme)
-  themedSrc?: string; // backward compatibility
   alt?: string;
   sizes?: string;
 };
 
 // Crossfade between base and themed screenshot to demonstrate themes.
-export default function ThemeShowcase({ baseSrc, altSrc, themedSrc, alt = "Bloxy theme", sizes = "(min-width: 640px) 33vw, 100vw" }: Props) {
-  const secondary = altSrc ?? themedSrc;
-  const containerRef = useRef<HTMLDivElement | null>(null);
+export default function ThemeShowcase({ baseSrc, altSrc, alt = "Bloxy theme", sizes = "(min-width: 640px) 33vw, 100vw" }: Props) {
+  const secondary = altSrc;
+  const containerRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(false);
   // Use a shared anchor so all instances stay in the same phase of the animation cycle.
   // Compute delay only on the client to avoid SSR hydration mismatches.
@@ -37,7 +36,7 @@ export default function ThemeShowcase({ baseSrc, altSrc, themedSrc, alt = "Bloxy
 
   useLayoutEffect(() => {
     // Compute once on mount so the delay is ready before animation starts
-    const win = window as unknown as { [key: string]: unknown } & Window & { __themeShowcaseAnchor?: number };
+    const win = window as typeof window & { __themeShowcaseAnchor?: number };
     const anchor = win.__themeShowcaseAnchor ?? (win.__themeShowcaseAnchor = Date.now());
     const computed = -(((Date.now() - anchor) % XFADER_DURATION_MS));
     setAnimationDelayMs(computed);
@@ -47,7 +46,7 @@ export default function ThemeShowcase({ baseSrc, altSrc, themedSrc, alt = "Bloxy
   useEffect(() => {
     // Recompute when becoming active to ensure perfect phase alignment even if this instance enters view later
     if (!active) return;
-    const win = window as unknown as { [key: string]: unknown } & Window & { __themeShowcaseAnchor?: number };
+    const win = window as typeof window & { __themeShowcaseAnchor?: number };
     const anchor = win.__themeShowcaseAnchor ?? (win.__themeShowcaseAnchor = Date.now());
     const computed = -(((Date.now() - anchor) % XFADER_DURATION_MS));
     setAnimationDelayMs(computed);
@@ -63,7 +62,7 @@ export default function ThemeShowcase({ baseSrc, altSrc, themedSrc, alt = "Bloxy
         sizes={sizes}
         className={`w-full h-auto will-change-opacity ${secondary ? "animate-xfade-a" : ""}`}
         style={{
-          animationPlayState: active && delayComputed ? ("running" as const) : ("paused" as const),
+          animationPlayState: active && delayComputed ? "running" : "paused",
           animationDelay: `${animationDelayMs}ms`,
         }}
       />
@@ -76,7 +75,7 @@ export default function ThemeShowcase({ baseSrc, altSrc, themedSrc, alt = "Bloxy
           sizes={sizes}
           className="absolute inset-0 w-full h-auto will-change-opacity animate-xfade-b"
           style={{
-            animationPlayState: active && delayComputed ? ("running" as const) : ("paused" as const),
+            animationPlayState: active && delayComputed ? "running" : "paused",
             animationDelay: `${animationDelayMs}ms`,
           }}
         />

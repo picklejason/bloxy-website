@@ -54,14 +54,14 @@ export default function Home() {
         <div className="container">
           <nav className="py-3 grid grid-cols-[auto_1fr_auto] items-center gap-3">
             <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition">
-              <Image src="/assets/images/icon.png" alt="Bloxy logo" width={40} height={40} className="rounded-md shadow-sm" />
+              <Image src="/assets/images/icon.png" alt="Bloxy logo" width={40} height={40} className="rounded-md shadow-sm" priority />
               <span className="text-lg sm:text-xl font-semibold tracking-tight">Bloxy</span>
             </Link>
-            <div className="hidden sm:flex items-center justify-center gap-6 text-sm text-[var(--color-muted)]">
+            <nav className="hidden sm:flex items-center justify-center gap-6 text-sm text-[var(--color-muted)]" aria-label="Main navigation">
               <a className="hover:text-white transition" href="#features">Features</a>
               <a className="hover:text-white transition" href="#faqs">FAQs</a>
               <Link className="hover:text-white transition" href="/contact">Contact</Link>
-            </div>
+            </nav>
             <div className="hidden sm:flex items-center gap-2 justify-end">
               <a href="#download" className="btn-primary">Get the app</a>
             </div>
@@ -76,24 +76,25 @@ export default function Home() {
         <div className="container pt-10 pb-10 sm:pt-16 sm:pb-16">
 
           <div className="mt-6 grid items-center gap-10 sm:grid-cols-2">
-            <Reveal>
+            <Reveal className="text-center sm:text-left">
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
                 Build better habits, one block at a time.
               </h1>
-              <p className="mt-4 text-base sm:text-lg text-[var(--color-muted)] max-w-xl">
+              <p className="mt-4 text-base sm:text-lg text-[var(--color-muted)] max-w-xl mx-auto sm:mx-0">
                 Bloxy turns your day into a satisfying game. Finish tasks to drop blocks, clear lines to earn points, and unlock beautiful block themes.
               </p>
-              <StoreBadges className="mt-8" />
+              <StoreBadges className="mt-8 flex justify-center sm:justify-start" />
             </Reveal>
             <Reveal className="relative" delayMs={100}>
-              <div className="card p-2 sm:p-3 max-w-[360px] sm:max-w-[420px] md:max-w-[480px] mx-auto">
+              <div className="card p-2 sm:p-3 max-w-[324px] sm:max-w-[378px] md:max-w-[432px] mx-auto">
                 <Image
                   src="/assets/screens/today.png"
                   alt="Bloxy Today screenshot"
                   width={900}
                   height={1800}
-                  sizes="(min-width: 1024px) 40vw, (min-width: 640px) 50vw, 95vw"
+                  sizes="(min-width: 1024px) 36vw, (min-width: 640px) 45vw, 90vw"
                   className="w-full h-auto rounded-xl"
+                  priority
                 />
               </div>
             </Reveal>
@@ -113,33 +114,35 @@ export default function Home() {
       </section> */}
 
       {/* Feature tiles */}
-      <section id="features"className="container py-10 sm:py-20 ">
-        <div className="mb-10">
-        <h2 className="text-2xl sm:text-4xl font-bold">A smarter, playful approach</h2>
-        <p className="mt-2 text-[var(--color-muted)] max-w-2xl">
-          Complete tasks to place blocks and build momentum. Bloxy rewards consistency rather than perfection.
-        </p>
+      <section id="features" className="container py-10 sm:py-20">
+        <div className="mb-10 text-center sm:text-left">
+          <h2 className="text-2xl sm:text-4xl font-bold">A smarter, playful approach</h2>
+          <p className="mt-2 text-[var(--color-muted)] max-w-2xl mx-auto sm:mx-0">
+            Complete tasks to place blocks and build momentum. Bloxy rewards consistency rather than perfection.
+          </p>
         </div>
         <div className="grid gap-6 sm:grid-cols-3">
-          <Reveal className="card p-5" delayMs={60} direction="left">
+          <Reveal className="card p-5 text-center sm:text-left" delayMs={60}>
             <h3 className="text-lg sm:text-xl font-bold">Turn your day into a game</h3>
             <p className="mt-2 text-sm text-[var(--color-muted)]">Finish tasks, drop pieces, and clear lines to earn points.</p>
             <div className="mt-4">
               <ThemeShowcase baseSrc="/assets/screens/game.png" altSrc="/assets/screens/game-theme.png" alt="Game with different theme" sizes="(min-width: 1024px) 33vw, 100vw" />
             </div>
           </Reveal>
-          <Reveal className="card p-5" delayMs={120} direction="up">
+          <Reveal className="card p-5 text-center sm:text-left" delayMs={120}>
             <h3 className="text-lg sm:text-xl font-bold">Unlock beautiful block themes</h3>
             <p className="mt-2 text-sm text-[var(--color-muted)]">Earn points to shop for unique styles in the collection.</p>
             <div className="mt-4">
               <ThemeShowcase baseSrc="/assets/screens/themes.png" altSrc="/assets/screens/themes-other.png" alt="Themes switching" sizes="(min-width: 1024px) 33vw, 100vw" />
             </div>
           </Reveal>
-          <Reveal className="card p-5" delayMs={180} direction="right">
+          <Reveal className="card p-5 text-center sm:text-left" delayMs={180}>
             <h3 className="text-lg sm:text-xl font-bold">Track your progress</h3>
             <p className="mt-2 text-sm text-[var(--color-muted)]">See streaks, activity, and trends that help you stay consistent.</p>
-            <div className="mt-4 rounded-xl overflow-hidden">
-              <Image src="/assets/screens/stats.png" alt="Stats" width={900} height={1800} className="w-full h-auto" />
+            <div className="mt-4">
+              <div className="relative overflow-hidden rounded-xl border border-[var(--color-border)]">
+                <Image src="/assets/screens/stats.png" alt="Stats" width={900} height={1800} sizes="(min-width: 1024px) 33vw, 100vw" className="w-full h-auto" />
+              </div>
             </div>
           </Reveal>
         </div>
