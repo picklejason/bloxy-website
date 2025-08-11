@@ -86,14 +86,14 @@ export default function Home() {
               <StoreBadges className="mt-8 flex justify-center sm:justify-start" />
             </Reveal>
             <Reveal className="relative" delayMs={100}>
-              <div className="card p-2 sm:p-3 max-w-[324px] sm:max-w-[378px] md:max-w-[432px] mx-auto">
+              <div className="max-w-[324px] sm:max-w-[378px] md:max-w-[432px] mx-auto">
                 <Image
-                  src="/assets/screens/today.png"
-                  alt="Bloxy Today screenshot"
+                  src="/assets/images/home.png"
+                  alt="Bloxy Home screenshot"
                   width={900}
                   height={1800}
                   sizes="(min-width: 1024px) 36vw, (min-width: 640px) 45vw, 90vw"
-                  className="w-full h-auto rounded-xl"
+                  className="w-full h-auto shadow-2xl"
                   priority
                 />
               </div>
@@ -126,22 +126,22 @@ export default function Home() {
             <h3 className="text-lg sm:text-xl font-bold">Turn your day into a game</h3>
             <p className="mt-2 text-sm text-[var(--color-muted)]">Finish tasks, drop pieces, and clear lines to earn points.</p>
             <div className="mt-4">
-              <ThemeShowcase baseSrc="/assets/screens/game.png" altSrc="/assets/screens/game-theme.png" alt="Game with different theme" sizes="(min-width: 1024px) 33vw, 100vw" />
+              <ThemeShowcase baseSrc="/assets/images/game-1.png" altSrc="/assets/images/game-2.png" alt="Game with different theme" sizes="(min-width: 1024px) 33vw, 100vw" />
             </div>
           </Reveal>
           <Reveal className="card p-5 text-center sm:text-left" delayMs={120}>
             <h3 className="text-lg sm:text-xl font-bold">Unlock beautiful block themes</h3>
             <p className="mt-2 text-sm text-[var(--color-muted)]">Earn points to shop for unique styles in the collection.</p>
             <div className="mt-4">
-              <ThemeShowcase baseSrc="/assets/screens/themes.png" altSrc="/assets/screens/themes-other.png" alt="Themes switching" sizes="(min-width: 1024px) 33vw, 100vw" />
+              <ThemeShowcase baseSrc="/assets/images/themes-1.png" altSrc="/assets/images/themes-2.png" alt="Themes switching" sizes="(min-width: 1024px) 33vw, 100vw" />
             </div>
           </Reveal>
           <Reveal className="card p-5 text-center sm:text-left" delayMs={180}>
             <h3 className="text-lg sm:text-xl font-bold">Track your progress</h3>
             <p className="mt-2 text-sm text-[var(--color-muted)]">See streaks, activity, and trends that help you stay consistent.</p>
             <div className="mt-4">
-              <div className="relative overflow-hidden rounded-xl border border-[var(--color-border)]">
-                <Image src="/assets/screens/stats.png" alt="Stats" width={900} height={1800} sizes="(min-width: 1024px) 33vw, 100vw" className="w-full h-auto" />
+              <div className="relative">
+                <Image src="/assets/images/stats.png" alt="Stats" width={900} height={1800} sizes="(min-width: 1024px) 33vw, 100vw" className="mx-auto w-[88%] sm:w-full h-auto shadow-2xl" />
               </div>
             </div>
           </Reveal>

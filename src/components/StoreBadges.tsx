@@ -21,14 +21,14 @@ export default function StoreBadges({ className }: Props) {
 
   return (
     <div className={className}>
-      <div className="flex flex-col sm:flex-row gap-4">
+      <div className="flex flex-row flex-wrap items-center justify-center gap-3 sm:gap-4">
         <a href="#download" className="inline-flex items-center justify-center">
           <Image
             src="/assets/images/Download_on_the_App_Store_Badge.svg"
             alt="Download on the App Store"
             width={210}
             height={62}
-            className="h-16 w-auto hover:scale-[1.02] transition"
+            className="h-12 sm:h-16 w-auto hover:scale-[1.02] transition"
           />
         </a>
         <button
@@ -43,7 +43,7 @@ export default function StoreBadges({ className }: Props) {
             alt="Get it on Google Play"
             width={210}
             height={62}
-            className="h-16 w-auto hover:scale-[1.02] transition"
+            className="h-12 sm:h-16 w-auto hover:scale-[1.02] transition"
           />
         </button>
       </div>

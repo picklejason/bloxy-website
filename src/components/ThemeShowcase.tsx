@@ -53,14 +53,14 @@ export default function ThemeShowcase({ baseSrc, altSrc, alt = "Bloxy theme", si
   }, [active]);
 
   return (
-    <div ref={containerRef} className="relative overflow-hidden rounded-xl border border-[var(--color-border)]">
+    <div ref={containerRef} className="relative">
       <Image
         src={baseSrc}
         alt={alt}
         width={900}
         height={1800}
         sizes={sizes}
-        className={`w-full h-auto will-change-opacity ${secondary ? "animate-xfade-a" : ""}`}
+        className={`mx-auto w-[92%] sm:w-full h-auto shadow-2xl will-change-opacity ${secondary ? "animate-xfade-a" : ""}`}
         style={{
           animationPlayState: active && delayComputed ? "running" : "paused",
           animationDelay: `${animationDelayMs}ms`,
@@ -73,7 +73,7 @@ export default function ThemeShowcase({ baseSrc, altSrc, alt = "Bloxy theme", si
           width={900}
           height={1800}
           sizes={sizes}
-          className="absolute inset-0 w-full h-auto will-change-opacity animate-xfade-b"
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[92%] sm:w-full h-auto shadow-2xl will-change-opacity animate-xfade-b"
           style={{
             animationPlayState: active && delayComputed ? "running" : "paused",
             animationDelay: `${animationDelayMs}ms`,
