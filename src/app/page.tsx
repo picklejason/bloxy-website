@@ -170,7 +170,7 @@ export default function Home() {
             {
               title: "Tasks & Productivity",
               items: [
-                { q: "How do I create and manage tasks?", a: "Tap the &lsquo;+&rsquo; button on the home screen to create new tasks. You can edit tasks by tapping on them, mark them complete by tapping the checkbox, and delete them by swiping or using the edit options." },
+                { q: "How do I create and manage tasks?", a: "Tap the '+' button on the home screen to create new tasks. You can edit tasks by tapping on them, mark them complete by tapping the checkbox, and delete them by swiping or using the edit options." },
                 { q: "Can I edit tasks after creating them?", a: "Yes! Tap on any task to edit its title, description, or other details. Changes are saved automatically." },
                 { q: "What happens if I miss a day?", a: "If you don’t complete all your tasks for the day, a ‘garbage line’ is added to your game board to keep things challenging. Your streak resets, but your data and progress are preserved so you can bounce back the next day." },
               ],
@@ -187,8 +187,8 @@ export default function Home() {
               title: "Data & Privacy",
               items: [
                 { q: "Is my data backed up?", a: "Bloxy supports iCloud backup and sync on iOS. Make sure iCloud for Bloxy is enabled in your device settings to keep your data synced and safe across devices." },
-                { q: "Is my data private?", a: "Absolutely! All your data is stored locally on your device. We don&amp;rsquo;t collect personal information or share any data with third parties. Your tasks and game progress stay completely private." },
-                { q: "What happens if I delete the app?", a: "If you delete the app, all your local data (tasks, game progress, stats) will be lost unless you&amp;rsquo;ve exported it first. Make sure to back up your data from the settings if you want to keep it." },
+                { q: "Is my data private?", a: "Absolutely! All your data is stored locally on your device. We don't collect personal information or share any data with third parties. Your tasks and game progress stay completely private." },
+                { q: "What happens if I delete the app?", a: "If you delete the app, all your local data (tasks, game progress, stats) will be lost unless you've backed up your data first. Make sure to turn on iCloud sync in settings if you want to keep it." },
               ],
             },
             {
@@ -202,9 +202,9 @@ export default function Home() {
             {
               title: "Troubleshooting",
               items: [
-                { q: "The app is running slowly or crashing", a: "Try closing and reopening the app. If problems persist, you can export your data for backup, then try restarting your device. Contact us if issues continue." },
-                { q: "My tasks or game progress disappeared", a: "This is unusual as data is stored locally. Check if you might be using a different device or if the app was recently updated. If data loss persists, please contact our support team." },
-                { q: "How do I report bugs or request features?", a: "Use the &lsquo;Contact Us&rsquo; option in Settings to report bugs, suggest features, or send general feedback. We read all submissions and use them to improve Bloxy." },
+                { q: "The app is running slowly or crashing", a: "Force close the app (swipe up on iOS), then reopen. If problems persist, try restarting your device. Contact us if issues continue." },
+                { q: "My tasks or game progress disappeared", a: "Data is stored locally by default and only recoverable if you've enabled iCloud sync and have a recent backup. Ensure you're signed into the same Apple ID and iCloud is enabled for Bloxy. Without iCloud, it can't be recovered." },
+                { q: "How do I report bugs or request features?", a: "Use the 'Contact Us' option in Settings to report bugs, suggest features, or send general feedback. We read all submissions and use them to improve Bloxy." },
               ],
             },
           ].map((section, idx) => (
