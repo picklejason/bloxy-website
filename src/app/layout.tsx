@@ -23,16 +23,6 @@ export const metadata: Metadata = {
     "Bloxy turns your daily tasks into a satisfying game. Complete tasks, drop blocks, clear lines, and unlock themes while staying consistent.",
   applicationName: "Bloxy",
   robots: { index: true, follow: true },
-  icons: {
-    // Use App Router icon conventions and your provided files in app/
-    icon: [
-      { url: "/favicon.png" },
-    ],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-    ],
-    shortcut: ["/favicon.png"],
-  },
   alternates: { canonical: "/" },
   openGraph: {
     title: "Bloxy — Build better habits, one block at a time",
