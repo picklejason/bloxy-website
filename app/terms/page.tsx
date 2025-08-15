@@ -4,7 +4,7 @@ export const metadata = {
   alternates: { canonical: "/terms" },
 };
 
-import Footer from "@/components/Footer";
+import Footer from "../components/Footer";
 
 export default function TermsPage() {
   return (
