@@ -89,7 +89,7 @@ export default function TermsPage() {
 
         <section className="mt-10 space-y-2">
           <h2 className="text-2xl font-bold">Contact</h2>
-          <p className="text-[var(--color-muted)]">Questions? Email us at support@bloxy.app.</p>
+          <p className="text-[var(--color-muted)]">Questions? Email us at bloxyapp@gmail.com.</p>
           <p className="text-sm opacity-70">Last updated: {new Date().toLocaleDateString()}</p>
         </section>
       </main>
