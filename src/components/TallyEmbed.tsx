@@ -19,7 +19,7 @@ type Props = {
 
 export default function TallyEmbed({ formUrl, title = "Tally form", className }: Props) {
   // Keep params minimal; styling handled directly in Tally. We only enable dynamic height and hide title.
-  const embedSrc = `${formUrl}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&borderRadius=16`;
+  const embedSrc = `${formUrl}?alignLeft=1&hideTitle=1&dynamicHeight=1&borderRadius=16`;
   return (
     <div className={className}>
       <iframe
