@@ -70,7 +70,7 @@ export default function StoreBadges({ className }: Props) {
                 ✕
               </button>
             </div>
-            <TallyEmbed formUrl="https://tally.so/embed/mRoDv3" title="Android Waitlist" />
+            <TallyEmbed formUrl="https://tally.so/embed/mBRly5" title="Android Waitlist" />
             <p className="mt-3 text-xs text-[var(--color-muted)]">
               Having trouble with the embedded form? Open it directly
               {" "}
