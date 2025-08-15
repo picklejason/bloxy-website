@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import TallyEmbed from "@/components/TallyEmbed";
+import TallyEmbed from "./TallyEmbed";
 
 type Props = {
   className?: string;

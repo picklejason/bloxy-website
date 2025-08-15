@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Reveal from "@/components/Reveal";
-import StoreBadges from "@/components/StoreBadges";
-import ThemeShowcase from "@/components/ThemeShowcase";
-import Footer from "@/components/Footer";
+import Reveal from "./components/Reveal";
+import StoreBadges from "./components/StoreBadges";
+import ThemeShowcase from "./components/ThemeShowcase";
+import Footer from "./components/Footer";
 import Link from "next/link";
 import Script from "next/script";
 

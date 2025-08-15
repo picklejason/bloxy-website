@@ -5,7 +5,7 @@ export const metadata = {
   alternates: { canonical: "/privacy" },
 };
 
-import Footer from "@/components/Footer";
+import Footer from "../components/Footer";
 
 export default function PrivacyPage() {
   return (

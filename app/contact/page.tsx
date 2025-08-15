@@ -1,5 +1,5 @@
-import Footer from "@/components/Footer";
-import TallyEmbed from "@/components/TallyEmbed";
+import Footer from "../components/Footer";
+import TallyEmbed from "../components/TallyEmbed";
 
 export const metadata = {
   title: "Contact",
