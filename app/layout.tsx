@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     siteName: "Bloxy",
     images: [
       {
-        url: "/assets/images/logo.png",
+        url: "/assets/images/logo.svg",
         alt: "Bloxy logo",
       },
     ],
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     description:
       "Turn tasks into blocks. Clear lines. Unlock rewards. Stay consistent.",
     images: [
-      { url: "/assets/images/logo.png", alt: "Bloxy logo" },
+      { url: "/assets/images/logo.svg", alt: "Bloxy logo" },
     ],
   },
 };
@@ -79,7 +79,7 @@ export default function RootLayout({
                   "@type": "Organization",
                   name: "Bloxy",
                   url: "https://www.bloxyapp.com/",
-                  logo: "https://www.bloxyapp.com/assets/images/logo.png",
+                  logo: "https://www.bloxyapp.com/assets/images/logo.svg",
                 },
                 {
                   "@type": "WebSite",
