@@ -22,7 +22,7 @@ export default function StoreBadges({ className }: Props) {
   return (
     <div className={className}>
       <div className="flex flex-row flex-wrap items-center justify-center gap-3 sm:gap-4">
-        <a href="#download" className="inline-flex items-center justify-center">
+        <a href="https://apps.apple.com/us/app/bloxy-daily-tasks/id6749551774" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center">
           <Image
             src="/assets/images/Download_on_the_App_Store_Badge.svg"
             alt="Download on the App Store"
