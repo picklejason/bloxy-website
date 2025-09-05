@@ -22,7 +22,7 @@ export default function PrivacyPage() {
           <ul className="list-disc pl-6 space-y-2 text-[var(--color-muted)]">
             <li>We do not sell your personal data.</li>
             <li>Your data is stored on your device; iCloud sync is optional and off unless enabled in iOS Settings.</li>
-            <li>No third‑party trackers are embedded in the app.</li>
+            <li>We collect anonymous usage analytics to help us improve Bloxy&rsquo;s features and reliability.</li>
           </ul>
         </section>
 
@@ -52,18 +52,12 @@ export default function PrivacyPage() {
 
         <section className="mt-10 space-y-4">
           <h2 className="text-2xl font-bold">Analytics</h2>
-          <p className="text-[var(--color-muted)]">
-            We currently do not collect analytics. If we introduce privacy‑respecting, opt‑in analytics in the future,
-            we will update this policy and provide in‑app controls.
-          </p>
+          <p className="text-[var(--color-muted)]">We collect anonymous usage analytics to help us improve Bloxy&rsquo;s features and reliability.</p>
         </section>
 
         <section className="mt-10 space-y-4">
           <h2 className="text-2xl font-bold">Third‑Party Services</h2>
-          <p className="text-[var(--color-muted)]">
-            iCloud is provided by Apple and governed by Apple’s terms and privacy policy. If you use Tally forms on our
-            website (e.g., waitlists), submissions are processed by Tally per their terms.
-          </p>
+          <p className="text-[var(--color-muted)]">iCloud is provided by Apple and governed by Apple’s terms and privacy policy. If you use Tally forms on our website (e.g., waitlists), submissions are processed by Tally per their terms.</p>
         </section>
 
         <section className="mt-10 space-y-4">
