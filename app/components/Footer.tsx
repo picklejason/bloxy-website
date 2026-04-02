@@ -16,7 +16,7 @@ export default function Footer() {
           <Link href="/contact">Contact</Link>
         </nav>
       </div>
-      <p className="mt-4">© {new Date().getFullYear()} Bloxy</p>
+      <p className="mt-4">© 2026 Bloxy</p>
     </footer>
   );
 }
